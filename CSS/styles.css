@@ -7,6 +7,11 @@ body{
     font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",sans-serif;
     line-height: 1.7;
     color:#432;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 a{
     text-decoration: none;
@@ -14,10 +19,56 @@ a{
 img{
     max-width: 100%;
 }
+section{
+    font-size: 30px;
+    padding: 150px 50px;
+}
+/*
+ヘッダー----------------------------------------*/
+header {
+    width: 100%; /* 幅いっぱいを指定 */
+    height: 200px; /* 高さを50pxに指定 */
+    background: #d8eb86; /* 背景色にグレーを指定 */
+    padding: 20px 50px; /* ヘッダーに上下左右それぞれ余白を指定 */
+    box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+    position: fixed; /* ウィンドウを基準に画面に固定 */
+    top: 0; /* 上下の固定位置を上から0pxにする */
+    left: 0; /* 左右の固定位置を左から0pxにする */
+    display: flex; /* 中の要素を横並びにする */
+    align-items: center; /* 中の要素を上下中央に並べる */
+}
+
+header .gnav .menu {
+    display: flex; /* 中の要素を横並びにする */
+}
+
+header .gnav .menu li {
+    list-style: none; /* リストの[・]を消す */
+}
+
+header .gnav .menu li + li {
+    margin-left: 40px; /* メニューそれぞれに間隔をあけるため */
+}
+
+main {
+    height: 100vw; /* スクロールの演出を見れるようにmainに高さを指定 */
+}
+.page-header{
+    padding-top: .5rem;
+}
+.logo{
+    width:210px;
+}
+.main-nav{
+    display: flex;
+    justify-content: center;
+    gap:2.5rem;
+    font-size:1.5rem;
+    list-style: none;
+}
 /*レイアウト
 ---------------------------*/
 .wrapper{
-    max-width: 1120px;
     margin: auto;
     padding:0 1.5rem;
 }
@@ -48,18 +99,93 @@ img{
 .heading-large{
     margin-bottom: 1rem;
 }
-/*ヘッダー
----------------------------------*/
-.page-header{
-    padding-top: .5rem;
-}
-.logo{
-    width:210px;
-}
-.main-nav{
-    display: flex;
-    justify-content: center;
-    gap:2.5rem;
-    font-size:1.5rem;
-    list-style: none;
+/*背景グラデ*/
+body { 
+    background: linear-gradient(aqua, yellow); 
+  }
+/*デスクトップ版
+-------------------------------------------------*/
+@media(min-width: 800px){
+    /*見出し*/
+    .page-title{
+        font-size:5rem;
+    }
+    .heading-large{
+        font-size: 4rem;
+    }
+    /*ヘッダー*/
+    .page-header{
+        display:flex;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+    }
+    .main-nav{
+        font-size:2rem;
+    }
+    /*ヘッダーカバー画像*/
+    .sub-cover{
+        height:400px;
+        margin-bottom:6rem;
+    }
+
+    /*HOME*/
+    .cover-home{
+        background-image:  url(../images/cover-home-l.webp);
+        .about {
+            margin: 4rem auto 0;
+        }
+    }   
+    /*NEWS*/
+    .cover-news{
+        background-image: url(../images/cover-news-l.webp);
+    }
+    .news-contents{
+        display:flex;
+        justify-content: space-between;
+    }
+    .post{
+        width: 60%;
+        order:2;
+    }
+    .sidebar{
+        width: 22%;
+        order:3;
+    }
+    .ad{
+        order:1;
+    }
+    .sidebar .heading-medium{
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    /*MENU*/
+    .cover-menu{
+        background-image: url(../images/cover-menu-l.webp);
+    }
+    .grid{
+        gap:2rem;
+        grid-template-columns:repeat(3,1fr);
+    }
+    .item img{
+        margin-bottom: .5rem;
+    }
+    .item p{
+        font-size: 1rem;
+    }
+    .item-big{
+        grid-column:1/3;
+        grid-row:1/3;
+    }
+    .item-big img{
+        height: 94.5%;
+        width:100%;
+    }
+    /*フッター*/
+    .page-footer{
+        background-image: url(../images/footer-l.webp);
+        padding-top: 12rem;
+    }
+    .info th{
+        padding-left: 2.5rem;
+    }
 }
